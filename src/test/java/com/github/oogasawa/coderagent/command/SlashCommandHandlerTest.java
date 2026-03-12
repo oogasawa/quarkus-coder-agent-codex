@@ -65,7 +65,7 @@ class SlashCommandHandlerTest {
 
         assertEquals(1, messages.size());
         assertEquals("info", messages.get(0).type());
-        assertTrue(messages.get(0).content().contains("o4-mini"));
+        assertTrue(messages.get(0).content().contains("gpt-5.4"));
     }
 
     @Test

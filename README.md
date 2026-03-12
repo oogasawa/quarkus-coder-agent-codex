@@ -6,7 +6,7 @@ A lightweight Web UI for OpenAI Codex CLI. Chat with Codex models from your brow
 
 ## Features
 
-- **Codex models** — o4-mini, o3, gpt-4.1 via Codex CLI
+- **Codex models** — gpt-5.4, o4-mini, o3 via Codex CLI
 - **Prompt queue** — queue up prompts while the AI is responding; auto-send, reorder, remove
 - **Tool execution** — Bash, Read, Write, Edit, Glob, Grep, WebSearch, WebFetch (via Codex CLI)
 - **Interactive prompts** — tool permission dialogs forwarded to the Web UI

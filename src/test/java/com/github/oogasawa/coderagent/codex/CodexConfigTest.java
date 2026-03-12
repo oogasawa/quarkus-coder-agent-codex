@@ -27,7 +27,7 @@ class CodexConfigTest {
     void defaults_returnsExpectedValues() {
         CodexConfig config = CodexConfig.defaults();
 
-        assertEquals("o4-mini", config.model());
+        assertEquals("gpt-5.4", config.model());
         assertNull(config.systemPrompt());
         assertEquals(0, config.maxTurns());
         assertNull(config.workingDir());
@@ -38,9 +38,9 @@ class CodexConfigTest {
 
     @Test
     void withModel_createsNewConfig() {
-        CodexConfig config = CodexConfig.defaults().withModel("o4-mini");
+        CodexConfig config = CodexConfig.defaults().withModel("gpt-5.4");
 
-        assertEquals("o4-mini", config.model());
+        assertEquals("gpt-5.4", config.model());
         // Other fields remain default
         assertNull(config.systemPrompt());
         assertEquals(0, config.maxTurns());
@@ -51,7 +51,7 @@ class CodexConfigTest {
         CodexConfig config = CodexConfig.defaults().withSystemPrompt("You are a helpful assistant");
 
         assertEquals("You are a helpful assistant", config.systemPrompt());
-        assertEquals("o4-mini", config.model());
+        assertEquals("gpt-5.4", config.model());
     }
 
     @Test
@@ -93,12 +93,12 @@ class CodexConfigTest {
     @Test
     void chaining_worksCorrectly() {
         CodexConfig config = CodexConfig.defaults()
-            .withModel("o4-mini")
+            .withModel("gpt-5.4")
             .withSystemPrompt("Test prompt")
             .withMaxTurns(3)
             .withSessionId("sess-1");
 
-        assertEquals("o4-mini", config.model());
+        assertEquals("gpt-5.4", config.model());
         assertEquals("Test prompt", config.systemPrompt());
         assertEquals(3, config.maxTurns());
         assertEquals("sess-1", config.sessionId());

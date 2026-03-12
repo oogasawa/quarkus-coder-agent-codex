@@ -20,7 +20,7 @@ package com.github.oogasawa.coderagent.codex;
 /**
  * Configuration record for Codex CLI subprocess invocation.
  *
- * @param model the model to use (e.g., "o4-mini", "o3", "gpt-4.1")
+ * @param model the model to use (e.g., "gpt-5.4", "o4-mini", "o3")
  * @param systemPrompt optional system prompt
  * @param maxTurns maximum agentic turns (0 = unlimited)
  * @param workingDir working directory for the subprocess
@@ -42,10 +42,10 @@ public record CodexConfig(
     /**
      * Creates a default configuration.
      *
-     * @return default CodexConfig with o4-mini model and no special options
+     * @return default CodexConfig with gpt-5.4 model and no special options
      */
     public static CodexConfig defaults() {
-        return new CodexConfig("o4-mini", null, 0, null, null, false, null);
+        return new CodexConfig("gpt-5.4", null, 0, null, null, false, null);
     }
 
     /**

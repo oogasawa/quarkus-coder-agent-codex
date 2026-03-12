@@ -21,14 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Provides the fixed list of Codex model names (o4-mini, o3, gpt-4.1).
+ * Provides the fixed list of Codex model names (gpt-5.4, o4-mini, o3).
  */
 public class CodexModelSet {
 
     /** A model entry with name, type, and optional server host. */
     public record ModelEntry(String name, String type, String server) {}
 
-    private static final List<String> DEFAULT_MODELS = List.of("o4-mini", "o3", "gpt-4.1");
+    private static final List<String> DEFAULT_MODELS = List.of("gpt-5.4", "o4-mini", "o3");
 
     private final List<String> models;
 

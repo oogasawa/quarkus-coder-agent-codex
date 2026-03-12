@@ -44,7 +44,7 @@ class CodexProcessTest {
         assertTrue(cmd.contains("--verbose"));
         assertTrue(cmd.contains("--model"));
         int modelIdx = cmd.indexOf("--model");
-        assertEquals("o4-mini", cmd.get(modelIdx + 1));
+        assertEquals("gpt-5.4", cmd.get(modelIdx + 1));
         // No prompt argument — prompt is sent via stdin in v2
         // The command should not contain any free-text prompt argument
         for (String arg : cmd) {
@@ -65,13 +65,13 @@ class CodexProcessTest {
 
     @Test
     void buildCommand_withModel() {
-        CodexConfig config = CodexConfig.defaults().withModel("o4-mini");
+        CodexConfig config = CodexConfig.defaults().withModel("gpt-5.4");
         CodexProcess cp = new CodexProcess(config);
         List<String> cmd = cp.buildCommand();
 
         assertTrue(cmd.contains("--model"));
         int idx = cmd.indexOf("--model");
-        assertEquals("o4-mini", cmd.get(idx + 1));
+        assertEquals("gpt-5.4", cmd.get(idx + 1));
     }
 
     @Test
@@ -162,7 +162,7 @@ class CodexProcessTest {
     void buildCommand_noPromptArg() {
         // In v2, prompt is sent via stdin, not as command-line argument
         CodexConfig config = CodexConfig.defaults()
-            .withModel("o4-mini")
+            .withModel("gpt-5.4")
             .withSystemPrompt("test prompt")
             .withMaxTurns(5);
         CodexProcess cp = new CodexProcess(config);
@@ -177,7 +177,7 @@ class CodexProcessTest {
     @Test
     void buildCommand_fullConfig() {
         CodexConfig config = CodexConfig.defaults()
-            .withModel("o4-mini")
+            .withModel("gpt-5.4")
             .withSystemPrompt("Be helpful")
             .withMaxTurns(10)
             .withSessionId("sess-1")

@@ -34,13 +34,13 @@ class ChatServiceTest {
     @Test
     void restoreSession_fromFile(@TempDir Path tempDir) throws Exception {
         Path file = tempDir.resolve(".coder-agent-session-7777");
-        Files.writeString(file, "sessionId=abc-123\nmodel=o4-mini\n");
+        Files.writeString(file, "sessionId=abc-123\nmodel=gpt-5.4\n");
 
         ChatService service = new ChatService(
                 Optional.empty(), "",
                 tempDir.resolve(".coder-agent-session").toString(), 7777);
 
-        assertEquals("o4-mini", service.getModel());
+        assertEquals("gpt-5.4", service.getModel());
     }
 
     @Test
@@ -49,7 +49,7 @@ class ChatServiceTest {
                 Optional.empty(), "",
                 tempDir.resolve(".coder-agent-session").toString(), 7777);
 
-        assertEquals("o4-mini", service.getModel());
+        assertEquals("gpt-5.4", service.getModel());
     }
 
     @Test
@@ -89,7 +89,7 @@ class ChatServiceTest {
                 Optional.empty(), "",
                 tempDir.resolve(".coder-agent-session").toString(), 7777);
 
-        assertEquals("o4-mini", service.getModel());
+        assertEquals("gpt-5.4", service.getModel());
     }
 
     @Test
@@ -108,7 +108,7 @@ class ChatServiceTest {
 
         var models = service.getAvailableModels();
         assertEquals(3, models.size());
-        assertEquals("o4-mini", models.get(0).name());
+        assertEquals("gpt-5.4", models.get(0).name());
         assertEquals("codex", models.get(0).type());
     }
 }
