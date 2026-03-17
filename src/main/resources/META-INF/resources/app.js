@@ -57,6 +57,31 @@
         console.log('[coder-agent] theme saved: key=' + THEME_KEY + ' value=' + theme);
     });
 
+    // --- Editable title ---
+    var appTitle = document.getElementById('app-title');
+    var defaultTitle = appTitle.textContent;
+    var savedTitle = localStorage.getItem('coder-agent-codex-custom-title');
+    if (savedTitle) {
+        appTitle.textContent = savedTitle;
+        document.title = savedTitle;
+    }
+    appTitle.addEventListener('input', function () {
+        document.title = appTitle.textContent || defaultTitle;
+    });
+    appTitle.addEventListener('blur', function () {
+        var t = appTitle.textContent.trim();
+        if (t && t !== defaultTitle) {
+            localStorage.setItem('coder-agent-codex-custom-title', t);
+        } else {
+            localStorage.removeItem('coder-agent-codex-custom-title');
+            appTitle.textContent = defaultTitle;
+        }
+        document.title = appTitle.textContent;
+    });
+    appTitle.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); appTitle.blur(); }
+    });
+
     // --- Model key (per-session in k8s-pups, global in standalone) ---
     var MODEL_KEY = 'coder-agent-model' + SESSION_SUFFIX;
 
